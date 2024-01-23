@@ -1,0 +1,26 @@
+name: main
+
+on:
+  workflow_dispatch:
+  pull_request:
+    branches:
+      - main
+      - release/v*
+    paths:
+      - "**.ts"
+  push:
+    branches:
+      - main
+    tags:
+      - v*
+    paths:
+      - "**.ts"
+
+jobs:
+  ci:
+    uses: ardian-france/devops-angular-ci-workflow/.github/workflows/workflow.yml@v1
+    name: CI
+    with:
+      node-version: ${{ vars.NODE_VERSION }}
+      output-dirname: dist
+      run-dependencies-audit: true
