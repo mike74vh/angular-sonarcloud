@@ -87,6 +87,8 @@ jobs:
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         run: |
+          yarn install
+          yarn run test:ci
           sonar-scanner --define sonar.host.url=https://sonarcloud.io
 
 # - name: Install SonarCloud scanner

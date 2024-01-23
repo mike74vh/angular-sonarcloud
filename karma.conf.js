@@ -34,7 +34,8 @@ module.exports = function (config) {
     coverageReporter: {
       dir: require('path').join(__dirname, './__reports'),
       reporters: [
-        { type: 'cobertura', subdir: './', file: 'coverage.cobertura.xml' }
+        { type: 'cobertura', subdir: './', file: 'coverage.cobertura.xml' },
+        { type: 'lcov', subdir: './', file: 'coverage.lcov' }
       ],
     },
     browsers: ['Chrome'],
